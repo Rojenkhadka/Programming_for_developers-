@@ -64,7 +64,7 @@ public class Q5a_TouristOptimizerGUI extends JFrame {
         ip.add(new JLabel("Time available (hours):")); ip.add(timeField);
         ip.add(new JLabel("Interests (comma-separated):")); ip.add(tagsField);
         JButton btn = new JButton("Plan Itinerary");
-        btn.setBackground(new Color(34, 139, 34)); btn.setForeground(Color.WHITE);
+        btn.setBackground(new Color(34, 139, 34)); btn.setForeground(Color.BLACK);
         ip.add(btn);
 
 

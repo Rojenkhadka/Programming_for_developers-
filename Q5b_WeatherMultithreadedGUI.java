@@ -65,8 +65,8 @@ public class Q5b_WeatherMultithreadedGUI extends JFrame {
 
 
         JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 6));
-        fetchBtn.setBackground(new Color(30, 100, 200)); fetchBtn.setForeground(Color.WHITE);
-        seqBtn.setBackground(new Color(160, 60, 60));   seqBtn.setForeground(Color.WHITE);
+        fetchBtn.setBackground(new Color(30, 100, 200)); fetchBtn.setForeground(Color.BLACK);
+        seqBtn.setBackground(new Color(160, 60, 60));   seqBtn.setForeground(Color.BLACK);
         btnPanel.add(fetchBtn); btnPanel.add(seqBtn); btnPanel.add(statusLbl);
 
         JPanel centre = new JPanel();

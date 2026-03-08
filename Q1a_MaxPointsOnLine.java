@@ -22,34 +22,33 @@ public class Q1a_MaxPointsOnLine {
         int maxPts = 1;
 
         for (int i = 0; i < n; i++) {
+          Map<String, Integer> slopeCount = new HashMap<>();
+          int duplicates = 0;   
+          int localMax   = 0;
 
-            Map<String, Integer> slopeCount = new HashMap<>();
-            int duplicates = 0;   // points identical to anchor i
-            int localMax   = 0;
+          for (int j = i + 1; j < n; j++) {
+            int dx = customerLocations[j][0] - customerLocations[i][0];
+            int dy = customerLocations[j][1] - customerLocations[i][1];
 
-            for (int j = i + 1; j < n; j++) {
-                int dx = customerLocations[j][0] - customerLocations[i][0];
-                int dy = customerLocations[j][1] - customerLocations[i][1];
-
-                if (dx == 0 && dy == 0) {
-                    duplicates++;
-                    continue;
-                }
-
-                int g = gcd(Math.abs(dx), Math.abs(dy));
-                dx /= g;
-                dy /= g;
-
-                if (dx < 0) { dx = -dx; dy = -dy; }
-                else if (dx == 0) { dy = Math.abs(dy); }
-
-                String key = dx + "/" + dy;
-                int cnt = slopeCount.getOrDefault(key, 0) + 1;
-                slopeCount.put(key, cnt);
-                localMax = Math.max(localMax, cnt);
+            if (dx == 0 && dy == 0) {
+              duplicates++;
+              continue;
             }
 
-            maxPts = Math.max(maxPts, localMax + duplicates + 1);
+            int g = gcd(Math.abs(dx), Math.abs(dy));
+            dx /= g;
+            dy /= g;
+
+            if (dx < 0) { dx = -dx; dy = -dy; }
+            else if (dx == 0) { dy = Math.abs(dy); }
+
+            String key = dx + "/" + dy;
+            int cnt = slopeCount.getOrDefault(key, 0) + 1;
+            slopeCount.put(key, cnt);
+            localMax = Math.max(localMax, cnt);
+          }
+
+          maxPts = Math.max(maxPts, localMax + duplicates + 1);
         }
         return maxPts;
     }
